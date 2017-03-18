@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="dv">
+			<p>hahahah</p>
+		</div>
+		<div>lalalal</div>
+		<p>lalall</p>
+		<p>lalal</p>
+		<!--<script src="jquery.js"></script>-->
+		<script src="itcast1.0.js"></script>
+		<script type="text/javascript">
+			//		将...追到到目标元素上
+			//			console.log($('<a>我是先选择器</a>').appendTo('div'));
+			//			console.log($('<p>我是dom对象</p>').appendTo(document.querySelectorAll('div')));
+			//			console.log($('<span>我是数组</span>').appendTo([document.querySelectorAll('div'),document.querySelectorAll('p')]))
+			//			console.log($('div').append("<a>啦啦</a>"));
+			//			console.log($('<a>我是先选择器</a>').prependTo('div'));
+			//			console.log($('#dv').prepend('<a></a>'));
+			//			var jq=$('div').next();
+			//			console.log(jq);
+//			var jq = $('div').nextAll();
+
+//			console.log(jq);
+//			$('p').remove();
+//			$('p').empty();
+			var jq=$('p').after('<span>哈哈</span>');
+//			var jq=$('p').before('a');
+			console.log(jq);
+		</script>
+	</body>
+
+</html>

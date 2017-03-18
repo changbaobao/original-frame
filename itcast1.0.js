@@ -256,6 +256,23 @@
 			return this.each(function(){
 				this.innerHTML='';
 			})
+		},
+		before:function(node){
+			return this.each(function(i,elem){
+				node=itcast(itcast.isString(node)?document.createTextNode(node):node);
+				node.each(function(j,cur){
+					elem.parentNode.insertBefore(i===0?cur:cur.cloneNode(true),elem);
+				})
+			})
+		},
+		after:function(node){
+			return this.each(function(i,elem){
+				nextSibling=elem.nextSibling;
+				node=itcast(itcast.isString(node)?document.createTextNode(node):node);
+				node.each(function(j,cur){
+					elem.parentNode.insertBefore(i===0?cur:cur.cloneNode(true),nextSibling);
+				})
+			})
 		}
 	})
 
