@@ -181,6 +181,27 @@
 			source=itcast(source);
 			source.appendTo(this);
 			return this;
+		},
+		prependTo:function(target){
+			target=itcast(target);
+			var that=this,
+			node,
+			ret=[],
+			firstChild;
+			target.each(function(i,elem){
+				firstChild=elem.firstChild;
+				that.each(function(){
+					node=i==0?this:this.cloneNode(true);
+					ret.push(node);
+					elem.insertBefore(node,firstChild);
+				});
+			})
+			return itcast(ret);
+		},
+		prepend:function(source){
+			source=itcast(source);
+			source.prependTo(this);
+			return this;
 		}
 	})
 
