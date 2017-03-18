@@ -127,6 +127,20 @@
       }
 
       return ret;
+    },
+     unique: function ( arr ) {
+      // 去重后的新数组
+      var ret = [];
+      // 遍历原数组arr
+      itcast.each( arr, function () {
+        // 如果indexOf返回值 为 -1，表示ret不含有当前元素
+        if ( ret.indexOf( this ) === -1 ) {
+          // 那么就添加到ret内
+          ret.push( this );
+        }
+      } );
+      // 返回结果
+      return ret;
     }
   } );
 
@@ -202,6 +216,36 @@
 			source=itcast(source);
 			source.prependTo(this);
 			return this;
+		},
+		next:function(){
+			var ret=[];
+			this.each(function(i,elem){
+				var node=elem.nextSibling;
+				while(node){
+					if(node.nodeType==1){
+						ret.push(node);
+						break;
+					}
+					node=node.nextSibling;
+				}
+				if(elem!==null){
+					ret.push(elem);
+				}
+			})
+			return itcast(ret);
+		},
+		nextAll:function(){
+			var ret=[];
+			this.each(function(i,elem){
+				var node=elem.nextSibling;
+				while(node){
+					if(node.nodeType==1){
+						ret.push(node);
+					}
+					node=node.nextSibling;
+				}
+			})
+			return itcast(itcast.unique(ret));
 		}
 	})
 
