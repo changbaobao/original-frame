@@ -246,6 +246,16 @@
 				}
 			})
 			return itcast(itcast.unique(ret));
+		},
+		remove:function(){
+			return this.each(function(){
+				this.parentNode.removeChild(this);
+			})
+		},
+		empty:function(){
+			return this.each(function(){
+				this.innerHTML='';
+			})
 		}
 	})
 
