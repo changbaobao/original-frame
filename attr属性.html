@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="dv"></div>
+		<div id="dv"></div>
+		<p id="dv"></p>
+		<!--<script src="jquery.js"></script>-->
+		<script src="itcast1.0.js"></script>
+		<script type="text/javascript">
+//			获取div中的id的属性名
+//			var div=$('div').attr('id');
+//			设置属性名
+//			var div=$('div').attr('id','haha');
+//			设置属性名
+			var div=$('div').attr({
+				'id':'lala',
+				'index':1
+			});
+//			var div=$('div').attr('');
+			console.log(div);
+		</script>
+	</body>
+</html>

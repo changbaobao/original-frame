@@ -4,18 +4,31 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style type="text/css">
+			.lala {
+				background:red;
+			}
+		</style>
 	</head>
 
 	<body>
-		<div id="dv">
+		<div id="dv" class="hah">
 			<p>hahahah</p>
 		</div>
-		<div>lalalal</div>
+		<div id="dv" class="dv">lalalal</div>
 		<p>lalall</p>
 		<p>lalal</p>
-		<!--<script src="jquery.js"></script>-->
-		<script src="itcast1.0.js"></script>
+		
+		<input type="text" name="" id="text" value="今天天气不错" />
+		<div id="dv" class="dv">hahah</div>
+		<script src="jquery.js"></script>
+		<!--<script src="itcast1.0.js"></script>-->
 		<script type="text/javascript">
+//		console.log($('#text').val('哈哈'));
+//		console.log($('#dv').html('啦啦'));
+//		console.log($('#dv').html(''));
+//		console.log($('#dv').html('hehe'));
+		
 			//		将...追到到目标元素上
 			//			console.log($('<a>我是先选择器</a>').appendTo('div'));
 			//			console.log($('<p>我是dom对象</p>').appendTo(document.querySelectorAll('div')));
@@ -30,9 +43,19 @@
 //			console.log(jq);
 //			$('p').remove();
 //			$('p').empty();
-			var jq=$('p').after('<span>哈哈</span>');
-//			var jq=$('p').before('a');
-			console.log(jq);
+//			var jq=$('p').after('<span>哈哈</span>');
+////			var jq=$('p').before('a');
+//			console.log(jq);
+//			设置attr 
+//			获取#dv的标签中的class的属性名
+//			var dv=$('#dv').attr('class');
+//			var dv=$('#dv').attr('');
+//			var dv=$('#dv').attr('class','hehe');
+			var dv=$('#dv').attr({
+				'class':'lala',
+				'backgroundColor':'blue'
+			});
+			console.log(dv);
 		</script>
 	</body>
 
