@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="text" value="lala"/>
+		<button id="getValue">点击获取值</button>
+		<!--<script src="jquery.js"></script>-->
+		<script src="itcast1.0.js"></script>
+		<script type="text/javascript">
+//		 prop不能获取和设置自定义的属性值
+//			var input=$('input').attr('index','呵呵');
+//			var input1=$('input').prop('index','lala');
+//			console.log(input1);
+//			点击获取value的值
+//		document.getElementById('getValue').onclick=function(){
+//			console.log($('#text').prop('value'));
+//		}
+		document.getElementById('getValue').onclick=function(){
+			console.log($('#text').attr('value','我是一个标签'));
+			console.log($('#text').attr('value'));
+		}
+		</script>
+	</body>
+</html>

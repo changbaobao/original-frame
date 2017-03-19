@@ -275,6 +275,27 @@
 				})
 			}
 		})
+//	属性模块
+	itcast.propFix={
+		'class':'className',
+		'for':'htmlFor'
+	};
+	 itcast.each( [
+    "tabIndex",
+    "readOnly",
+    "maxLength",
+    "cellSpacing",
+    "cellPadding",
+    "rowSpan",
+    "colSpan",
+    "useMap",
+    "frameBorder",
+    "contentEditable"
+  ], function() {
+    	itcast.propFix[ this.toLowerCase() ] = this;
+  } );
+	
+	
 		//	操作dom标签
 	itcast.fn.extend({
 		attr: function(name, value) {
@@ -300,6 +321,74 @@
 			//			实现链式编程
 			return this;
 		},
+		prop:function(name,value){
+			if(value===undefined){
+//					如果为对象
+					if(typeof name==='object'){
+						this.each(function(i,elem){
+							for(var k in name){
+								propName=propFix[k]||k;
+								elem[propName]=name[k];
+							}
+						})
+					}else {
+//						为字符串
+						propName=itcast.propFix[name]||name;
+						return this.length===0?undefined:this[0][propName];
+					}
+			}else {
+//				不为undefined时
+				this.each(function(){
+					propName=itcast.propFix[name]||name;
+					this[propName]=value;
+				})
+			}
+			return this;
+		},
+		val:function(value){
+				if(value==undefined){
+					return this.length==0?undefined:this[0].value;
+				}else {
+					return this.each(function(){
+						this.value=value;
+					})
+				}
+		},
+		html:function(html){
+			if(html===undefined){
+				return this.length==0?undefined:this[0].innerHTML;
+			}else {
+				return this.each(function(){
+					this.innerHTML=html;
+				})
+			}
+		},
+		text:function(text){
+			if(text==undefined){
+				return this.length==0?'':this[0].textContent;
+			}else {
+				return this.each(function(){
+					this.textContent=text;
+				})
+			}
+		},
+		hasClass:function(className){
+			var ret=false;
+			this.each(function(){
+				if(this.classList.contains(className)){
+					ret=true;
+					return false;
+				}
+			})
+			return ret;
+		},
+		addClass:function(className){
+		return 	this.each(function(i,elem){
+				if(!itcast(elem).hasClass(className)){
+					elem.classList.add=className;
+				}
+			})
+		}
 	})
 
 	if (typeof define === 'function') {
